@@ -75,27 +75,6 @@ const Landing = () => {
                 </Form.Row>
             </div>
             <div>
-            {/* <form 
-            onSubmit={twoSubmit}
-            className="add-new-post">
-                <input 
-                name= "name"
-                value= {two.name}
-                onChange={twoChange}
-                size="lg" 
-                required
-                className="mb-3"
-                placeholder="name" />
-                <input 
-                name= "monday"
-                value= {two.monday}
-                onChange={twoChange}
-                size="lg" 
-                required
-                className="mb-3"
-                placeholder="time" />
-                <input className="button" type="submit" value="submit"/><br/>
-            </form> */}
             <Form 
             onSubmit={twoSubmit}>
             <Form.Row>

@@ -11,7 +11,7 @@ export default function SingleReport (props) {
                 <h6>
                     {report.name}
                 </h6>
-                <p>{parseInt(report.monday) + 20}</p>
+                <p>{report.bonus}</p>
         </div>
     )
 }

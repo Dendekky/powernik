@@ -6,15 +6,18 @@ export default function AllReport (props) {
 
     // reports.forEach(report => console.log(report.monday.split(":")));
 
-    // function Time()
+    function TimeInMinutes(time) {
+        return (+time[0]) * 60 + (+time[1]);
+    }
 
     reports.forEach(function(report){
         var a = report.monday.split(':');
         var b = report.tuesday.split(':'); 
-        var aMinutes = (+a[0]) * 60 + (+a[1]);
-        var bMinutes = (+b[0]) * 60 + (+b[1]);
+        var aMinutes = TimeInMinutes(a);
+        var bMinutes = TimeInMinutes(b);
         report.mondayTime = aMinutes;
         report.tuesdayTime = bMinutes;
+        report.bonus = (( ( (540 - aMinutes) + (540 - bMinutes))/5 ) * 50 );
     });
 
     console.log(reports);
@@ -32,7 +35,7 @@ export default function AllReport (props) {
                 }}>
                     {report.name}
                 </Link>
-                <p>#{( ((540 - report.mondayTime)/5) + ((540 - report.tuesdayTime)/5) ) * 50 }</p>
+                <p>#{report.bonus}</p>
             </div>
             ))}
         </div>
