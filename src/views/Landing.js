@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Redirect } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+
 
 const Landing = () => {
     const [employeeData] = useState([]);
@@ -48,25 +52,30 @@ const Landing = () => {
         return (
             <div>
             <div>
-                <input 
-                name= "name"
+                <Form.Row>
+                <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
                 value= {item.name}
-                onChange={onChange}
-                size="lg" 
-                disabled
-                className="mb-3"
-                placeholder="name" />
-                <input 
-                name= "time"
+                disabled/>            
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Monday</Form.Label>
+                <Form.Control
                 value= {item.monday}
-                onChange={onChange}
-                size="lg" 
-                disabled
-                className="mb-3"
-                placeholder="time" />
+                disabled />                
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridTues">
+                <Form.Label>Tuesday</Form.Label>
+                <Form.Control 
+                value= {item.tuesday}
+                disabled 
+                />                
+                </Form.Group>
+                </Form.Row>
             </div>
             <div>
-            <form 
+            {/* <form 
             onSubmit={twoSubmit}
             className="add-new-post">
                 <input 
@@ -86,7 +95,53 @@ const Landing = () => {
                 className="mb-3"
                 placeholder="time" />
                 <input className="button" type="submit" value="submit"/><br/>
-            </form>
+            </form> */}
+            <Form 
+            onSubmit={twoSubmit}>
+            <Form.Row>
+                <Form.Group as={Col} controlId="formGridName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="Name" 
+                placeholder="Employee" 
+                name= "name"
+                value= {two.name}
+                onChange={twoChange}
+                required/>            
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridMon">
+                <Form.Label>Monday</Form.Label>
+                <Form.Control type="time" 
+                name= "monday"
+                value= {two.monday}
+                onChange={twoChange}
+                required />                
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridTues">
+                <Form.Label>Tuesday</Form.Label>
+                <Form.Control type="time" 
+                name= "tuesday"
+                value= {two.tuesday}
+                onChange={twoChange}
+                required 
+                />                
+                </Form.Group>
+                {/* <Form.Group as={Col} controlId="formGridWed">
+                <Form.Label>Wednesday</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" />                
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridThur">
+                <Form.Label>Thursday</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" />                
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridFri">
+                <Form.Label>Friday</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" />                
+                </Form.Group> */}
+            </Form.Row>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+            </Form>
             </div>
             </div>
         )
@@ -101,27 +156,52 @@ const Landing = () => {
     }
     return (
         <div>
-            <form 
-            onSubmit={handleSubmit}
-            className="add-new-post">
-                <input 
+            <Form 
+            onSubmit={handleSubmit}>
+            <Form.Row>
+                <Form.Group as={Col} controlId="formGridName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="Name" 
+                placeholder="Employee" 
                 name= "name"
                 value= {item.name}
                 onChange={onChange}
-                required
-                size="lg" 
-                className="mb-3"
-                placeholder="name" />
-                <input 
+                required/>            
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridMon">
+                <Form.Label>Monday</Form.Label>
+                <Form.Control type="time" 
                 name= "monday"
                 value= {item.monday}
                 onChange={onChange}
-                required
-                size="lg" 
-                className="mb-3"
-                placeholder="time" />
-                <input className="button" type="submit" value="submit"/><br/>
-            </form>
+                required />                
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridTues">
+                <Form.Label>Tuesday</Form.Label>
+                <Form.Control type="time" 
+                name= "tuesday"
+                value= {item.tuesday}
+                onChange={onChange}
+                required 
+                />                
+                </Form.Group>
+                {/* <Form.Group as={Col} controlId="formGridWed">
+                <Form.Label>Wednesday</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" />                
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridThur">
+                <Form.Label>Thursday</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" />                
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridFri">
+                <Form.Label>Friday</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" />                
+                </Form.Group> */}
+            </Form.Row>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+            </Form>
         </div>
     );
 }
