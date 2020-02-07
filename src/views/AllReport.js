@@ -4,23 +4,37 @@ import { Link } from 'react-router-dom';
 export default function AllReport (props) {
     const [reports] = useState(props.location.state.report);
 
-    // reports.forEach(report => console.log(report.monday.split(":")));
-
     function TimeInMinutes(time) {
         return (+time[0]) * 60 + (+time[1]);
     }
 
+    function ConvertTime(input) {
+        return input.split(':')
+    }
+
+    function TimeDiff(value) {
+        return (540 - value)
+        // 540 being time conversion for 9:00am
+    }
+
     reports.forEach(function(report){
-        var a = report.monday.split(':');
-        var b = report.tuesday.split(':'); 
+        var a = ConvertTime(report.monday);
+        var b = ConvertTime(report.tuesday);
+        var c = ConvertTime(report.wednesday);
+        var d = ConvertTime(report.thursday);
+        var e = ConvertTime(report.friday);
+
         var aMinutes = TimeInMinutes(a);
         var bMinutes = TimeInMinutes(b);
-        report.mondayTime = aMinutes;
-        report.tuesdayTime = bMinutes;
-        report.bonus = (( ( (540 - aMinutes) + (540 - bMinutes))/5 ) * 50 );
+        var cMinutes = TimeInMinutes(c);
+        var dMinutes = TimeInMinutes(d);
+        var eMinutes = TimeInMinutes(e);
+        // report.mondayTime = aMinutes;
+        // report.tuesdayTime = bMinutes;
+        report.bonus = (( ( 
+            (TimeDiff(aMinutes)) + (TimeDiff(bMinutes)) + (TimeDiff(cMinutes)) + (TimeDiff(dMinutes)) + (TimeDiff(eMinutes)) )/5 ) * 50 );
     });
 
-    console.log(reports);
 
     return(
         <div>

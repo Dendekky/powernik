@@ -1,131 +1,257 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Redirect } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
+
+import FormEdit from '../components/FormEdit';
+import DisabledForm from '../components/DisabledForm';
 
 
 const Landing = () => {
     const [employeeData] = useState([]);
 
-    // useEffect(() => {
-    //     employeeData.push(item);
-    //     // console.log(`Component mounted`)
-    //   }, [])
     const inputInfo = {
         name: '', monday: '', tuesday: '', wednesday: '', thursday: '', friday: ''
     }
 
 
-    const [item, setItem] = useState(inputInfo);
+    const [one, setOne] = useState(inputInfo);
     const [two, setTwo] = useState(inputInfo);
+    const [three, setThree] = useState(inputInfo);
+    const [four, setFour] = useState(inputInfo);
+    const [five, setFive] = useState(inputInfo);
+    const [six, setSix] = useState(inputInfo);    
+    const [seven, setSeven] = useState(inputInfo);
+    const [eight, setEight] = useState(inputInfo);
+    const [nine, setNine] = useState(inputInfo);
+    const [ten, setTen] = useState(inputInfo);
+
     
-    const [error, setError] = useState(false);
-    const [twoError, setTwoError] = useState(false);
+    const [formOne, setFormOne] = useState(false);
+    const [formTwo, setFormTwo] = useState(false);
+    const [formThree, setFormThree] = useState(false);
+    const [formFour, setFormFour] = useState(false);
+    const [formFive, setFormFive] = useState(false);
+    const [formSix, setFormSix] = useState(false);
+    const [formSeven, setFormSeven] = useState(false);
+    const [formEight, setFormEight] = useState(false);
+    const [formNine, setFormNine] = useState(false);
+    const [formTen, setFormTen] = useState(false);
 
 
-    const onChange = (event) => {
-        event.persist();
-        setItem({ ...item, [event.target.name]: event.target.value });
+    const handleChange = (e, setItem, item) => {
+        e.persist();
+        setItem({ ...item, [e.target.name]: e.target.value });
+    }
+
+    const oneChange = (event) => {
+        handleChange(event, setOne, one)
     };
-
     const twoChange = (event) => {
-        event.persist();
-        setTwo({ ...two, [event.target.name]: event.target.value });
+        handleChange(event, setTwo, two)
+    };
+    const threeChange = (event) => {
+        handleChange(event, setThree, three)
+    };
+    const fourChange =(event) => {
+        handleChange(event, setFour, four)
+    };
+    const fiveChange =(event) => {
+        handleChange(event, setFive, five)
+    };
+    const sixChange =(event) => {
+        handleChange(event, setSix, six)
+    };
+    const sevenChange =(event) => {
+        handleChange(event, setSeven, seven)
+    };
+    const eightChange =(event) => {
+        handleChange(event, setEight, eight)
+    };
+    const nineChange =(event) => {
+        handleChange(event, setNine, nine)
+    };
+    const tenChange =(event) => {
+        handleChange(event, setTen, ten)
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        employeeData.push(item);
+    const submitForm = async (e, data) => {
+        e.preventDefault();
+        employeeData.push(data);
         console.log(employeeData);
-        setError(true)
-    }
-    const twoSubmit = async (event) => {
-        event.preventDefault();
-        employeeData.push(two);
-        console.log(employeeData);
-        setError(false)
-        setTwoError(true)
     }
 
-    if (error) {
+    function setForm(...args) {
+        args.forEach( arg => arg(false))
+    }
+
+    const formOneSubmit = async (event) => {
+        submitForm(event, one);
+        setFormOne(true);
+    }
+    const formTwoSubmit = async (event) => {
+        submitForm(event, two);
+        setForm(setFormOne);
+        setFormTwo(true);
+    }
+    const formThreeSubmit = async (event) => {
+        submitForm(event, three);
+        setForm(setFormOne, setFormTwo);
+        setFormThree(true);
+    }
+    const formFourSubmit = async (event) => {
+        submitForm(event, four);
+        setForm(setFormOne, setFormTwo, setFormThree);
+        setFormFour(true);
+    }
+    const formFiveSubmit = async (event) => {
+        submitForm(event, five);
+        setForm(setFormOne, setFormTwo, setFormThree, setFormFour);
+        setFormFive(true);
+    }
+    const formSixSubmit = async (event) => {
+        submitForm(event, six);
+        setForm(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive);
+        setFormSix(true);
+    }
+    const formSevenSubmit = async (event) => {
+        submitForm(event, seven);
+        setForm(
+            setFormOne, setFormTwo, setFormThree, 
+            setFormFour, setFormFive, setFormSix);
+        setFormSeven(true);
+    }
+    const formEightSubmit = async (event) => {
+        submitForm(event, eight);
+        setForm(
+            setFormOne, setFormTwo, setFormThree, setFormFour, 
+            setFormFive, setFormSix, setFormSeven);
+        setFormEight(true);
+    }
+    const formNineSubmit = async (event) => {
+        submitForm(event, nine);
+        setForm(
+            setFormOne, setFormTwo, setFormThree, setFormFour, 
+            setFormFive, setFormSix, setFormSeven, setFormEight
+            );
+        setFormNine(true);
+    }
+    const formTenSubmit = async (event) => {
+        submitForm(event, ten);
+        setForm(
+            setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, 
+            setFormSix, setFormSeven, setFormEight, setFormNine
+            );
+        setFormTen(true);
+    }
+
+    if (formOne) {
         return (
             <div>
-            <div>
-                <Form.Row>
-                <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                value= {item.name}
-                disabled/>            
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Monday</Form.Label>
-                <Form.Control
-                value= {item.monday}
-                disabled />                
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridTues">
-                <Form.Label>Tuesday</Form.Label>
-                <Form.Control 
-                value= {item.tuesday}
-                disabled 
-                />                
-                </Form.Group>
-                </Form.Row>
-            </div>
-            <div>
-            <Form 
-            onSubmit={twoSubmit}>
-            <Form.Row>
-                <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="Name" 
-                placeholder="Employee" 
-                name= "name"
-                value= {two.name}
-                onChange={twoChange}
-                required/>            
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridMon">
-                <Form.Label>Monday</Form.Label>
-                <Form.Control type="time" 
-                name= "monday"
-                value= {two.monday}
-                onChange={twoChange}
-                required />                
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridTues">
-                <Form.Label>Tuesday</Form.Label>
-                <Form.Control type="time" 
-                name= "tuesday"
-                value= {two.tuesday}
-                onChange={twoChange}
-                required 
-                />                
-                </Form.Group>
-                {/* <Form.Group as={Col} controlId="formGridWed">
-                <Form.Label>Wednesday</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />                
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridThur">
-                <Form.Label>Thursday</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />                
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridFri">
-                <Form.Label>Friday</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />                
-                </Form.Group> */}
-            </Form.Row>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-            </Form>
-            </div>
+            <DisabledForm data={one} />
+            <FormEdit data={two} onChange={twoChange} onSubmit={formTwoSubmit} />
             </div>
         )
     }
-    if (twoError) {
+    if (formTwo) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <FormEdit data={three} onChange={threeChange} onSubmit={formThreeSubmit} />
+            </div>
+        )
+    }
+    if (formThree) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <DisabledForm data={three} />
+            <FormEdit data={four} onChange={fourChange} onSubmit={formFourSubmit} />
+            </div>
+        )
+    }
+    if (formFour) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <DisabledForm data={three} />
+            <DisabledForm data={four} />
+            <FormEdit data={five} onChange={fiveChange} onSubmit={formFiveSubmit} />
+            </div>
+        )
+    }
+    if (formFive) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <DisabledForm data={three} />
+            <DisabledForm data={four} />
+            <DisabledForm data={five} />
+            <FormEdit data={six} onChange={sixChange} onSubmit={formSixSubmit} />
+            </div>
+        )
+    }
+    if (formSix) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <DisabledForm data={three} />
+            <DisabledForm data={four} />
+            <DisabledForm data={five} />
+            <DisabledForm data={six} />
+            <FormEdit data={seven} onChange={sevenChange} onSubmit={formSevenSubmit} />
+            </div>
+        )
+    }
+    if (formSeven) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <DisabledForm data={three} />
+            <DisabledForm data={four} />
+            <DisabledForm data={five} />
+            <DisabledForm data={six} />
+            <DisabledForm data={seven} />
+            <FormEdit data={eight} onChange={eightChange} onSubmit={formEightSubmit} />
+            </div>
+        )
+    }
+    if (formEight) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <DisabledForm data={three} />
+            <DisabledForm data={four} />
+            <DisabledForm data={five} />
+            <DisabledForm data={six} />
+            <DisabledForm data={seven} />
+            <DisabledForm data={eight} />
+            <FormEdit data={nine} onChange={nineChange} onSubmit={formNineSubmit} />
+            </div>
+        )
+    }
+    if (formNine) {
+        return (
+            <div>
+            <DisabledForm data={one} />
+            <DisabledForm data={two} />
+            <DisabledForm data={three} />
+            <DisabledForm data={four} />
+            <DisabledForm data={five} />
+            <DisabledForm data={six} />
+            <DisabledForm data={seven} />
+            <DisabledForm data={eight} />
+            <DisabledForm data={nine} />
+            <FormEdit data={ten} onChange={tenChange} onSubmit={formTenSubmit} />
+            </div>
+        )
+    }
+    if (formTen) {
         return <Redirect to={{
             pathname: '/report',
             state: {
@@ -135,52 +261,7 @@ const Landing = () => {
     }
     return (
         <div>
-            <Form 
-            onSubmit={handleSubmit}>
-            <Form.Row>
-                <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="Name" 
-                placeholder="Employee" 
-                name= "name"
-                value= {item.name}
-                onChange={onChange}
-                required/>            
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridMon">
-                <Form.Label>Monday</Form.Label>
-                <Form.Control type="time" 
-                name= "monday"
-                value= {item.monday}
-                onChange={onChange}
-                required />                
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridTues">
-                <Form.Label>Tuesday</Form.Label>
-                <Form.Control type="time" 
-                name= "tuesday"
-                value= {item.tuesday}
-                onChange={onChange}
-                required 
-                />                
-                </Form.Group>
-                {/* <Form.Group as={Col} controlId="formGridWed">
-                <Form.Label>Wednesday</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />                
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridThur">
-                <Form.Label>Thursday</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />                
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridFri">
-                <Form.Label>Friday</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />                
-                </Form.Group> */}
-            </Form.Row>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-            </Form>
+            <FormEdit data={one} onChange={oneChange} onSubmit={formOneSubmit} />
         </div>
     );
 }
