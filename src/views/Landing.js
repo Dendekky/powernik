@@ -147,7 +147,7 @@ const Landing = () => {
     if (formOne) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
             <DisabledForm data={one} />
             <FormEdit data={two} onChange={twoChange} onSubmit={formTwoSubmit} />
@@ -159,7 +159,7 @@ const Landing = () => {
     if (formTwo) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
@@ -172,7 +172,7 @@ const Landing = () => {
     if (formThree) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
@@ -186,7 +186,7 @@ const Landing = () => {
     if (formFour) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
@@ -201,7 +201,7 @@ const Landing = () => {
     if (formFive) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
@@ -217,7 +217,7 @@ const Landing = () => {
     if (formSix) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
@@ -234,7 +234,7 @@ const Landing = () => {
     if (formSeven) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
                 <DisabledForm data={one} />
                 <DisabledForm data={two} />
@@ -252,7 +252,7 @@ const Landing = () => {
     if (formEight) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
                 <DisabledForm data={one} />
                 <DisabledForm data={two} />
@@ -271,7 +271,7 @@ const Landing = () => {
     if (formNine) {
         return (
             <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
             <Card.Body>
                 <DisabledForm data={one} />
                 <DisabledForm data={two} />
@@ -298,7 +298,7 @@ const Landing = () => {
     }
     return (
         <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
                 <Card.Body>
                 <FormEdit data={one} onChange={oneChange} onSubmit={formOneSubmit} />
                 </Card.Body>

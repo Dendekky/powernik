@@ -18,7 +18,7 @@ export default function SingleReport (props) {
 
     return(
         <div>
-            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
                 <Card.Body>
                 <p>Hello there </p>
                 {data.results.map((result, idx) => (
