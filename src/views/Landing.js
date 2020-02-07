@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import { Redirect } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
-import FormEdit from '../components/FormEdit';
-import DisabledForm from '../components/DisabledForm';
+import FormEdit from '../components/formActions/FormAdd';
+import DisabledForm from '../components/formActions/DisabledForm';
+import FormSubmit from '../components/formActions/FormSubmit';
 
 
 const Landing = () => {
@@ -136,6 +137,7 @@ const Landing = () => {
         setFormNine(true);
     }
     const formTenSubmit = async (event) => {
+        localStorage.setItem('reports', JSON.stringify(employeeData));
         submitForm(event, ten);
         setForm(
             setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, 
@@ -282,20 +284,22 @@ const Landing = () => {
                 <DisabledForm data={seven} />
                 <DisabledForm data={eight} />
                 <DisabledForm data={nine} />
-                <FormEdit data={ten} onChange={tenChange} onSubmit={formTenSubmit} />
+                <FormSubmit data={ten} onChange={tenChange} onSubmit={formTenSubmit} />
             </Card.Body>
             </Card>
             </div>
         )
     }
     if (formTen) {
-        return <Redirect to={{
-            pathname: '/report',
-            state: {
-              report: employeeData 
-            }
-        }} />
+        return <Redirect to= '/report' />
+        // {{
+        //     pathname: '/report',
+        //     state: {
+        //       report: employeeData 
+        //     }
+        // }} />
     }
+    
     return (
         <div>
             <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>

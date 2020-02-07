@@ -20,7 +20,6 @@ export default function SingleReport (props) {
         <div>
             <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
                 <Card.Body>
-                <p>Hello there </p>
                 {data.results.map((result, idx) => (
                 <div key={idx}>
                     <img src= {result.picture.large} />

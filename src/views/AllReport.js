@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
 export default function AllReport (props) {
-    const [reports] = useState(props.location.state.report);
+    const reports = JSON.parse(localStorage.getItem('reports'));
+
+    console.log(reports);
 
     function TimeInMinutes(time) {
         return (+time[0]) * 60 + (+time[1]);
@@ -41,7 +43,6 @@ export default function AllReport (props) {
         <div>
             <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
                 <Card.Body>
-                <p>Hello there </p>
                 {reports.map((report, idx) => (
                 <div key={idx}>
                     <Link to={{
