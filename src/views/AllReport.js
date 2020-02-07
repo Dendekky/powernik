@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
 export default function AllReport (props) {
     const [reports] = useState(props.location.state.report);
@@ -38,20 +39,24 @@ export default function AllReport (props) {
 
     return(
         <div>
-            <p>Hello there </p>
-            {reports.map((report, idx) => (
-            <div key={idx}>
-                <Link to={{
-                    pathname: `/report/${report.name}`,
-                    state: {
-                    report: report 
-                    }
-                }}>
-                    {report.name}
-                </Link>
-                <p>#{report.bonus}</p>
-            </div>
-            ))}
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+                <Card.Body>
+                <p>Hello there </p>
+                {reports.map((report, idx) => (
+                <div key={idx}>
+                    <Link to={{
+                        pathname: `/report/${report.name}`,
+                        state: {
+                        report: report 
+                        }
+                    }}>
+                        {report.name}
+                    </Link>
+                    <p>#{report.bonus}</p>
+                </div>
+                ))}
+                </Card.Body>
+            </Card>
         </div>
     )
 }
