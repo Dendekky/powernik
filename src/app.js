@@ -6,7 +6,7 @@ import SingleReport from './views/SingleReport';
 
 
 const App = () => <Router>
-    <div>
+    <div className="routes">
     <Route exact path='/' component={Landing} />
     <Route exact path='/report' component={AllReport} />
     <Route path='/report/:name' component={SingleReport} />

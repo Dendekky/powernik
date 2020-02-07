@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Redirect } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
 import FormEdit from '../components/FormEdit';
 import DisabledForm from '../components/DisabledForm';
@@ -146,56 +147,78 @@ const Landing = () => {
     if (formOne) {
         return (
             <div>
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
             <DisabledForm data={one} />
             <FormEdit data={two} onChange={twoChange} onSubmit={formTwoSubmit} />
+            </Card.Body>
+            </Card>            
             </div>
         )
     }
     if (formTwo) {
         return (
             <div>
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <FormEdit data={three} onChange={threeChange} onSubmit={formThreeSubmit} />
+            </Card.Body>
+            </Card>
             </div>
         )
     }
     if (formThree) {
         return (
             <div>
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <DisabledForm data={three} />
             <FormEdit data={four} onChange={fourChange} onSubmit={formFourSubmit} />
+            </Card.Body>
+            </Card>            
             </div>
         )
     }
     if (formFour) {
         return (
             <div>
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <DisabledForm data={three} />
             <DisabledForm data={four} />
             <FormEdit data={five} onChange={fiveChange} onSubmit={formFiveSubmit} />
+            </Card.Body>
+            </Card>            
             </div>
         )
     }
     if (formFive) {
         return (
             <div>
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <DisabledForm data={three} />
             <DisabledForm data={four} />
             <DisabledForm data={five} />
             <FormEdit data={six} onChange={sixChange} onSubmit={formSixSubmit} />
+            </Card.Body>
+            </Card>            
             </div>
         )
     }
     if (formSix) {
         return (
             <div>
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <DisabledForm data={three} />
@@ -203,51 +226,65 @@ const Landing = () => {
             <DisabledForm data={five} />
             <DisabledForm data={six} />
             <FormEdit data={seven} onChange={sevenChange} onSubmit={formSevenSubmit} />
+            </Card.Body>
+            </Card>
             </div>
         )
     }
     if (formSeven) {
         return (
             <div>
-            <DisabledForm data={one} />
-            <DisabledForm data={two} />
-            <DisabledForm data={three} />
-            <DisabledForm data={four} />
-            <DisabledForm data={five} />
-            <DisabledForm data={six} />
-            <DisabledForm data={seven} />
-            <FormEdit data={eight} onChange={eightChange} onSubmit={formEightSubmit} />
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
+                <DisabledForm data={one} />
+                <DisabledForm data={two} />
+                <DisabledForm data={three} />
+                <DisabledForm data={four} />
+                <DisabledForm data={five} />
+                <DisabledForm data={six} />
+                <DisabledForm data={seven} />
+                <FormEdit data={eight} onChange={eightChange} onSubmit={formEightSubmit} />
+            </Card.Body>
+            </Card>
             </div>
         )
     }
     if (formEight) {
         return (
             <div>
-            <DisabledForm data={one} />
-            <DisabledForm data={two} />
-            <DisabledForm data={three} />
-            <DisabledForm data={four} />
-            <DisabledForm data={five} />
-            <DisabledForm data={six} />
-            <DisabledForm data={seven} />
-            <DisabledForm data={eight} />
-            <FormEdit data={nine} onChange={nineChange} onSubmit={formNineSubmit} />
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
+                <DisabledForm data={one} />
+                <DisabledForm data={two} />
+                <DisabledForm data={three} />
+                <DisabledForm data={four} />
+                <DisabledForm data={five} />
+                <DisabledForm data={six} />
+                <DisabledForm data={seven} />
+                <DisabledForm data={eight} />
+                <FormEdit data={nine} onChange={nineChange} onSubmit={formNineSubmit} />
+            </Card.Body>
+            </Card>
             </div>
         )
     }
     if (formNine) {
         return (
             <div>
-            <DisabledForm data={one} />
-            <DisabledForm data={two} />
-            <DisabledForm data={three} />
-            <DisabledForm data={four} />
-            <DisabledForm data={five} />
-            <DisabledForm data={six} />
-            <DisabledForm data={seven} />
-            <DisabledForm data={eight} />
-            <DisabledForm data={nine} />
-            <FormEdit data={ten} onChange={tenChange} onSubmit={formTenSubmit} />
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+            <Card.Body>
+                <DisabledForm data={one} />
+                <DisabledForm data={two} />
+                <DisabledForm data={three} />
+                <DisabledForm data={four} />
+                <DisabledForm data={five} />
+                <DisabledForm data={six} />
+                <DisabledForm data={seven} />
+                <DisabledForm data={eight} />
+                <DisabledForm data={nine} />
+                <FormEdit data={ten} onChange={tenChange} onSubmit={formTenSubmit} />
+            </Card.Body>
+            </Card>
             </div>
         )
     }
@@ -261,7 +298,11 @@ const Landing = () => {
     }
     return (
         <div>
-            <FormEdit data={one} onChange={oneChange} onSubmit={formOneSubmit} />
+            <Card style={{ height: '100vh', background: '#dddbe0' }}>
+                <Card.Body>
+                <FormEdit data={one} onChange={oneChange} onSubmit={formOneSubmit} />
+                </Card.Body>
+            </Card>
         </div>
     );
 }

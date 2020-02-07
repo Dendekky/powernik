@@ -10,8 +10,8 @@ export default function FormEdit (props) {
             <Form 
             onSubmit={props.onSubmit}>
             <Form.Row>
-                <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Name</Form.Label>
+                <Form.Group controlId="formGridName">
+                <Form.Label>Employee</Form.Label>
                 <Form.Control type="text" 
                 placeholder="Employee" 
                 name= "name"
