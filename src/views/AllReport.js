@@ -53,7 +53,7 @@ export default function AllReport (props) {
                     }}>
                         {report.name}
                     </Link>
-                    <p>#{report.bonus}</p>
+                    <p>₦{report.bonus}</p>
                 </div>
                 ))}
                 </Card.Body>

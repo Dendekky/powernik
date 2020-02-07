@@ -17,17 +17,23 @@ export default function SingleReport (props) {
       }, []);
 
     return(
-        <div>
+        <div className="employee" >
             <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
                 <Card.Body>
                 {data.results.map((result, idx) => (
                 <div key={idx}>
-                    <img src= {result.picture.large} />
+                    <img alt="employee-image" style={{ borderRadius: '50%'}} src= {result.picture.large} />
                 </div>))}
-                <h6>
+                <div className="employee-id">
+                <h6>Employee Name</h6>
+                <span>
                     {report.name}
-                </h6>
-                <p>#{report.bonus}</p>
+                </span>
+                </div>
+                <div>
+                <h6>Employee Weekly Bonus</h6>
+                <p>₦ {report.bonus}</p>
+                </div>
                 </Card.Body>
             </Card>
         </div>
