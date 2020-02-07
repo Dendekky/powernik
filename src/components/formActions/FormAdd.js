@@ -2,6 +2,8 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import FormIncomplete from './FormIncompleteAlert';
+
 
 export default function FormEdit (props) {
 
@@ -10,8 +12,8 @@ export default function FormEdit (props) {
             <Form 
             onSubmit={props.onSubmit}>
             <Form.Row>
-                <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Name</Form.Label>
+                <Form.Group controlId="formGridName">
+                <Form.Label>Employee</Form.Label>
                 <Form.Control type="text" 
                 placeholder="Employee" 
                 name= "name"
@@ -64,9 +66,10 @@ export default function FormEdit (props) {
                 />               
                 </Form.Group>
             </Form.Row>
-            <Button variant="primary" type="submit">
-                Submit
+            <Button style={{ marginRight: '4px'}} variant="primary" type="submit">
+                Add
             </Button>
+            <FormIncomplete />
             </Form>
         </div>
     )

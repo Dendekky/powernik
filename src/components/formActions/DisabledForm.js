@@ -8,7 +8,7 @@ export default function DisabledForm (props) {
     return (
         <div>
             <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group controlId="formGridCity">
             <Form.Label>Name</Form.Label>
             <Form.Control
             value= {props.data.name}
