@@ -3,7 +3,12 @@ import Axios from 'axios';
 import Card from 'react-bootstrap/Card';
 
 export default function SingleReport (props) {
-    const [report] = useState(props.location.state.report);
+    // if (localStorage.getItem('report') == null || undefined ) {
+    // localStorage.setItem('report', JSON.stringify(props.location.state.report));
+    // }
+
+    const report = JSON.parse(localStorage.getItem('report'))
+    // useState(props.location.state.report);
     const [data, setData] = useState({ results: [ ] })
 
     useEffect(() => {
@@ -14,7 +19,9 @@ export default function SingleReport (props) {
           setData(result.data);
         };
         fetchData();
-      }, []);
+    }, []);
+
+    console.log(report)
 
     return(
         <div className="employee" >

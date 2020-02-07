@@ -5,7 +5,11 @@ import Card from 'react-bootstrap/Card';
 export default function AllReport (props) {
     const reports = JSON.parse(localStorage.getItem('reports'));
 
-    console.log(reports);
+    // console.log(reports);
+
+    const linkOnClick = (data) => {
+        localStorage.setItem('report', JSON.stringify(data));
+    }
 
     function TimeInMinutes(time) {
         return (+time[0]) * 60 + (+time[1]);
@@ -45,12 +49,7 @@ export default function AllReport (props) {
                 <Card.Body>
                 {reports.map((report, idx) => (
                 <div key={idx}>
-                    <Link to={{
-                        pathname: `/report/${report.name}`,
-                        state: {
-                        report: report 
-                        }
-                    }}>
+                    <Link to= {`/report/${report.name}`} onClick={ () => linkOnClick(report) } >
                         {report.name}
                     </Link>
                     <p>₦{report.bonus}</p>
