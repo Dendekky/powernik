@@ -25,6 +25,8 @@ export default function FormEdit (props) {
                 <Form.Label>Monday</Form.Label>
                 <Form.Control type="time" 
                 name= "monday"
+                min='00:00'
+                max='09:00'
                 value= {props.data.monday}
                 onChange={props.onChange}
                 required />                
@@ -33,6 +35,8 @@ export default function FormEdit (props) {
                 <Form.Label>Tuesday</Form.Label>
                 <Form.Control type="time" 
                 name= "tuesday"
+                min='00:00'
+                max='09:00'
                 value= {props.data.tuesday}
                 onChange={props.onChange}
                 required 
@@ -42,6 +46,8 @@ export default function FormEdit (props) {
                 <Form.Label>Wednesday</Form.Label>
                 <Form.Control type="time" 
                 name= "wednesday"
+                min='00:00'
+                max='09:00'
                 value= {props.data.wednesday}
                 onChange={props.onChange}
                 required 
@@ -51,6 +57,8 @@ export default function FormEdit (props) {
                 <Form.Label>Thursday</Form.Label>
                 <Form.Control type="time" 
                 name= "thursday"
+                min='00:00'
+                max='09:00'
                 value= {props.data.thursday}
                 onChange={props.onChange}
                 required 
@@ -60,6 +68,8 @@ export default function FormEdit (props) {
                 <Form.Label>Friday</Form.Label>
                 <Form.Control type="time" 
                 name= "friday"
+                min='00:00'
+                max='09:00'
                 value= {props.data.friday}
                 onChange={props.onChange}
                 required 
