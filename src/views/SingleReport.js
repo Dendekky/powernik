@@ -3,12 +3,10 @@ import Axios from 'axios';
 import Card from 'react-bootstrap/Card';
 
 export default function SingleReport (props) {
-    // if (localStorage.getItem('report') == null || undefined ) {
-    // localStorage.setItem('report', JSON.stringify(props.location.state.report));
-    // }
+    const { match: { params } } = props;
+    console.log(params.name)
 
-    const report = JSON.parse(localStorage.getItem('report'))
-    // useState(props.location.state.report);
+    const report = JSON.parse(localStorage.getItem('reports')).filter(val => val.name.toLowerCase() == params.name.toLowerCase())
     const [data, setData] = useState({ results: [ ] })
 
     useEffect(() => {
@@ -32,14 +30,16 @@ export default function SingleReport (props) {
                     <img alt="employee-image" style={{ borderRadius: '50%'}} src= {result.picture.large} />
                 </div>))}
                 <div className="employee-id">
+                {report.map((output, index) => (
+                <div key={index}>
                 <h6>Employee Name</h6>
                 <span>
-                    {report.name}
+                        {output.name}
                 </span>
-                </div>
-                <div>
                 <h6>Employee Weekly Bonus</h6>
-                <p>₦ {report.bonus}</p>
+                <p>₦ {output.bonus}</p>
+                </div>
+                ))}
                 </div>
                 </Card.Body>
             </Card>
