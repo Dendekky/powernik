@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import CsvDownloader from 'react-csv-downloader';
+
 
 export default function SingleReport (props) {
     const { match: { params } } = props;
@@ -38,6 +41,9 @@ export default function SingleReport (props) {
                 <p>₦ {output.bonus}</p>
                 </div>
                 ))}
+                <CsvDownloader filename="Employee Bonus Report" datas={report}>
+                    <Button>Download As CSV</Button>
+                </CsvDownloader>
                 </div>
                 </Card.Body>
             </Card>

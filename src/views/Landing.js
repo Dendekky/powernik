@@ -70,44 +70,44 @@ const Landing = () => {
     }
     const formThreeSubmit = async (event) => {
         submitForm(event, three);
-        setFormDisable(setFormOne, setFormTwo);
+        setFormDisable(setFormTwo);
         setFormThree(true);
     }
     const formFourSubmit = async (event) => {
         submitForm(event, four);
-        setFormDisable(setFormOne, setFormTwo, setFormThree);
+        setFormDisable(setFormThree);
         setFormFour(true);
     }
     const formFiveSubmit = async (event) => {
         submitForm(event, five);
-        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour);
+        setFormDisable(setFormFour);
         setFormFive(true);
     }
     const formSixSubmit = async (event) => {
         submitForm(event, six);
-        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive);
+        setFormDisable(setFormFive);
         setFormSix(true);
     }
     const formSevenSubmit = async (event) => {
         submitForm(event, seven);
-        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix);
+        setFormDisable(setFormSix);
         setFormSeven(true);
     }
     const formEightSubmit = async (event) => {
         submitForm(event, eight);
-        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix, setFormSeven);
+        setFormDisable(setFormSeven);
         setFormEight(true);
     }
     const formNineSubmit = async (event) => {
         submitForm(event, nine);
-        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix, setFormSeven, setFormEight);
+        setFormDisable(setFormEight);
         setFormNine(true);
     }
     const formTenSubmit = async (event) => {
+        submitForm(event, ten);
         CalculateBonus(employeeData);
         localStorage.setItem('reports', JSON.stringify(employeeData));
-        submitForm(event, ten);
-        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix, setFormSeven, setFormEight, setFormNine);
+        setFormDisable(setFormNine);
         setFormTen(true);
     }
 
