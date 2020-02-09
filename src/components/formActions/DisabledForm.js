@@ -8,13 +8,13 @@ export default function DisabledForm (props) {
     return (
         <div>
             <Form.Row>
-            <Form.Group controlId="formGridCity">
+            <Form.Group controlId="formGridName">
             <Form.Label>Name</Form.Label>
             <Form.Control
             value= {props.data.name}
             disabled/>            
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group as={Col} controlId="formGridMon">
             <Form.Label>Monday</Form.Label>
             <Form.Control
             value= {props.data.monday}
@@ -27,19 +27,19 @@ export default function DisabledForm (props) {
             disabled 
             />
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group as={Col} controlId="formGridWed">
             <Form.Label>Wednesday</Form.Label>
             <Form.Control
             value= {props.data.wednesday}
             disabled/>            
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group as={Col} controlId="formGridthur">
             <Form.Label>Thursday</Form.Label>
             <Form.Control
             value= {props.data.thursday}
             disabled />                
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridTues">
+            <Form.Group as={Col} controlId="formGridFri">
             <Form.Label>Friday</Form.Label>
             <Form.Control 
             value= {props.data.friday}

@@ -5,7 +5,12 @@ import Card from 'react-bootstrap/Card';
 import FormEdit from '../components/formActions/FormAdd';
 import DisabledForm from '../components/formActions/DisabledForm';
 import FormSubmit from '../components/formActions/FormSubmit';
+import CalculateBonus from '../components/CalculateBonus';
 
+
+const cardStyle = {
+    minHeight: '100vh', height: '100%', background: '#dddbe0'
+}
 
 const Landing = () => {
     const [employeeData] = useState([]);
@@ -44,44 +49,13 @@ const Landing = () => {
         setItem({ ...item, [e.target.name]: e.target.value });
     }
 
-    const oneChange = (event) => {
-        handleChange(event, setOne, one)
-    };
-    const twoChange = (event) => {
-        handleChange(event, setTwo, two)
-    };
-    const threeChange = (event) => {
-        handleChange(event, setThree, three)
-    };
-    const fourChange =(event) => {
-        handleChange(event, setFour, four)
-    };
-    const fiveChange =(event) => {
-        handleChange(event, setFive, five)
-    };
-    const sixChange =(event) => {
-        handleChange(event, setSix, six)
-    };
-    const sevenChange =(event) => {
-        handleChange(event, setSeven, seven)
-    };
-    const eightChange =(event) => {
-        handleChange(event, setEight, eight)
-    };
-    const nineChange =(event) => {
-        handleChange(event, setNine, nine)
-    };
-    const tenChange =(event) => {
-        handleChange(event, setTen, ten)
-    };
 
     const submitForm = async (e, data) => {
         e.preventDefault();
         employeeData.push(data);
-        console.log(employeeData);
     }
 
-    function setForm(...args) {
+    function setFormDisable(...args) {
         args.forEach( arg => arg(false))
     }
 
@@ -91,68 +65,59 @@ const Landing = () => {
     }
     const formTwoSubmit = async (event) => {
         submitForm(event, two);
-        setForm(setFormOne);
+        setFormDisable(setFormOne);
         setFormTwo(true);
     }
     const formThreeSubmit = async (event) => {
         submitForm(event, three);
-        setForm(setFormOne, setFormTwo);
+        setFormDisable(setFormOne, setFormTwo);
         setFormThree(true);
     }
     const formFourSubmit = async (event) => {
         submitForm(event, four);
-        setForm(setFormOne, setFormTwo, setFormThree);
+        setFormDisable(setFormOne, setFormTwo, setFormThree);
         setFormFour(true);
     }
     const formFiveSubmit = async (event) => {
         submitForm(event, five);
-        setForm(setFormOne, setFormTwo, setFormThree, setFormFour);
+        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour);
         setFormFive(true);
     }
     const formSixSubmit = async (event) => {
         submitForm(event, six);
-        setForm(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive);
+        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive);
         setFormSix(true);
     }
     const formSevenSubmit = async (event) => {
         submitForm(event, seven);
-        setForm(
-            setFormOne, setFormTwo, setFormThree, 
-            setFormFour, setFormFive, setFormSix);
+        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix);
         setFormSeven(true);
     }
     const formEightSubmit = async (event) => {
         submitForm(event, eight);
-        setForm(
-            setFormOne, setFormTwo, setFormThree, setFormFour, 
-            setFormFive, setFormSix, setFormSeven);
+        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix, setFormSeven);
         setFormEight(true);
     }
     const formNineSubmit = async (event) => {
         submitForm(event, nine);
-        setForm(
-            setFormOne, setFormTwo, setFormThree, setFormFour, 
-            setFormFive, setFormSix, setFormSeven, setFormEight
-            );
+        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix, setFormSeven, setFormEight);
         setFormNine(true);
     }
     const formTenSubmit = async (event) => {
+        CalculateBonus(employeeData);
         localStorage.setItem('reports', JSON.stringify(employeeData));
         submitForm(event, ten);
-        setForm(
-            setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, 
-            setFormSix, setFormSeven, setFormEight, setFormNine
-            );
+        setFormDisable(setFormOne, setFormTwo, setFormThree, setFormFour, setFormFive, setFormSix, setFormSeven, setFormEight, setFormNine);
         setFormTen(true);
     }
 
     if (formOne) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
             <DisabledForm data={one} />
-            <FormEdit data={two} onChange={twoChange} onSubmit={formTwoSubmit} />
+            <FormEdit data={two} onChange={(event) => handleChange(event, setTwo, two)} onSubmit={formTwoSubmit} />
             </Card.Body>
             </Card>            
             </div>
@@ -161,11 +126,11 @@ const Landing = () => {
     if (formTwo) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
-            <FormEdit data={three} onChange={threeChange} onSubmit={formThreeSubmit} />
+            <FormEdit data={three} onChange={(event) => handleChange(event, setThree, three)} onSubmit={formThreeSubmit} />
             </Card.Body>
             </Card>
             </div>
@@ -174,12 +139,12 @@ const Landing = () => {
     if (formThree) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <DisabledForm data={three} />
-            <FormEdit data={four} onChange={fourChange} onSubmit={formFourSubmit} />
+            <FormEdit data={four} onChange={(event) => handleChange(event, setFour, four)} onSubmit={formFourSubmit} />
             </Card.Body>
             </Card>            
             </div>
@@ -188,13 +153,13 @@ const Landing = () => {
     if (formFour) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <DisabledForm data={three} />
             <DisabledForm data={four} />
-            <FormEdit data={five} onChange={fiveChange} onSubmit={formFiveSubmit} />
+            <FormEdit data={five} onChange={(event) => handleChange(event, setFive, five)} onSubmit={formFiveSubmit} />
             </Card.Body>
             </Card>            
             </div>
@@ -203,14 +168,14 @@ const Landing = () => {
     if (formFive) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
             <DisabledForm data={three} />
             <DisabledForm data={four} />
             <DisabledForm data={five} />
-            <FormEdit data={six} onChange={sixChange} onSubmit={formSixSubmit} />
+            <FormEdit data={six} onChange={(event) => handleChange(event, setSix, six)} onSubmit={formSixSubmit} />
             </Card.Body>
             </Card>            
             </div>
@@ -219,7 +184,7 @@ const Landing = () => {
     if (formSix) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
             <DisabledForm data={one} />
             <DisabledForm data={two} />
@@ -227,7 +192,7 @@ const Landing = () => {
             <DisabledForm data={four} />
             <DisabledForm data={five} />
             <DisabledForm data={six} />
-            <FormEdit data={seven} onChange={sevenChange} onSubmit={formSevenSubmit} />
+            <FormEdit data={seven} onChange={(event) => handleChange(event, setSeven, seven)} onSubmit={formSevenSubmit} />
             </Card.Body>
             </Card>
             </div>
@@ -236,7 +201,7 @@ const Landing = () => {
     if (formSeven) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
                 <DisabledForm data={one} />
                 <DisabledForm data={two} />
@@ -245,7 +210,7 @@ const Landing = () => {
                 <DisabledForm data={five} />
                 <DisabledForm data={six} />
                 <DisabledForm data={seven} />
-                <FormEdit data={eight} onChange={eightChange} onSubmit={formEightSubmit} />
+                <FormEdit data={eight} onChange={(event) => handleChange(event, setEight, eight)} onSubmit={formEightSubmit} />
             </Card.Body>
             </Card>
             </div>
@@ -254,7 +219,7 @@ const Landing = () => {
     if (formEight) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
                 <DisabledForm data={one} />
                 <DisabledForm data={two} />
@@ -264,7 +229,7 @@ const Landing = () => {
                 <DisabledForm data={six} />
                 <DisabledForm data={seven} />
                 <DisabledForm data={eight} />
-                <FormEdit data={nine} onChange={nineChange} onSubmit={formNineSubmit} />
+                <FormEdit data={nine} onChange={(event) => handleChange(event, setNine, nine)} onSubmit={formNineSubmit} />
             </Card.Body>
             </Card>
             </div>
@@ -273,7 +238,7 @@ const Landing = () => {
     if (formNine) {
         return (
             <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
             <Card.Body>
                 <DisabledForm data={one} />
                 <DisabledForm data={two} />
@@ -284,7 +249,7 @@ const Landing = () => {
                 <DisabledForm data={seven} />
                 <DisabledForm data={eight} />
                 <DisabledForm data={nine} />
-                <FormSubmit data={ten} onChange={tenChange} onSubmit={formTenSubmit} />
+                <FormSubmit data={ten} onChange={(event) => handleChange(event, setTen, ten)} onSubmit={formTenSubmit} />
             </Card.Body>
             </Card>
             </div>
@@ -292,19 +257,13 @@ const Landing = () => {
     }
     if (formTen) {
         return <Redirect to= '/report' />
-        // {{
-        //     pathname: '/report',
-        //     state: {
-        //       report: employeeData 
-        //     }
-        // }} />
     }
     
     return (
         <div>
-            <Card style={{ minHeight: '100vh', height: '100%', background: '#dddbe0' }}>
+            <Card style={cardStyle}>
                 <Card.Body>
-                <FormEdit data={one} onChange={oneChange} onSubmit={formOneSubmit} />
+                <FormEdit data={one} onChange={(event) => handleChange(event, setOne, one)} onSubmit={formOneSubmit} />
                 </Card.Body>
             </Card>
         </div>
