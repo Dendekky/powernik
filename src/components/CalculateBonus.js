@@ -33,7 +33,7 @@ export default function CalculateBonus (reports) {
         // report.mondayTime = aMinutes;
         // report.tuesdayTime = bMinutes;
         report.bonus = (Math.round(( ( 
-            (TimeDiff(aMinutes)) + (TimeDiff(bMinutes)) + (TimeDiff(cMinutes)) + (TimeDiff(dMinutes)) + (TimeDiff(eMinutes)) )/10 ) * 50 ));
+            (TimeDiff(aMinutes)) + (TimeDiff(bMinutes)) + (TimeDiff(cMinutes)) + (TimeDiff(dMinutes)) + (TimeDiff(eMinutes)) )/5 ) * 50 ));
     });
 
     return reports;
