@@ -10,8 +10,12 @@ export default function CalculateBonus (reports) {
     }
 
     function TimeDiff(value) {
-        return (540 - value)
         // 540 being time conversion for 9:00am
+        if ( value > 540 ) {
+            return 0
+        } else {
+            return (540 - value)
+        }
     }
 
     reports.forEach(function(report){
