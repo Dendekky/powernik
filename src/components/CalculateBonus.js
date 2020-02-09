@@ -32,8 +32,8 @@ export default function CalculateBonus (reports) {
         var eMinutes = TimeInMinutes(e);
         // report.mondayTime = aMinutes;
         // report.tuesdayTime = bMinutes;
-        report.bonus = (( ( 
-            (TimeDiff(aMinutes)) + (TimeDiff(bMinutes)) + (TimeDiff(cMinutes)) + (TimeDiff(dMinutes)) + (TimeDiff(eMinutes)) )/10 ) * 50 );
+        report.bonus = (Math.round(( ( 
+            (TimeDiff(aMinutes)) + (TimeDiff(bMinutes)) + (TimeDiff(cMinutes)) + (TimeDiff(dMinutes)) + (TimeDiff(eMinutes)) )/10 ) * 50 ));
     });
 
     return reports;
