@@ -10,8 +10,12 @@ export default function CalculateBonus (reports) {
     }
 
     function TimeDiff(value) {
-        return (540 - value)
         // 540 being time conversion for 9:00am
+        if ( value > 540 ) {
+            return 0
+        } else {
+            return (540 - value)
+        }
     }
 
     reports.forEach(function(report){
@@ -29,7 +33,7 @@ export default function CalculateBonus (reports) {
         // report.mondayTime = aMinutes;
         // report.tuesdayTime = bMinutes;
         report.bonus = (( ( 
-            (TimeDiff(aMinutes)) + (TimeDiff(bMinutes)) + (TimeDiff(cMinutes)) + (TimeDiff(dMinutes)) + (TimeDiff(eMinutes)) )/5 ) * 50 );
+            (TimeDiff(aMinutes)) + (TimeDiff(bMinutes)) + (TimeDiff(cMinutes)) + (TimeDiff(dMinutes)) + (TimeDiff(eMinutes)) )/10 ) * 50 );
     });
 
     return reports;
