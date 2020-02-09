@@ -53,7 +53,6 @@ const Landing = () => {
     const submitForm = async (e, data) => {
         e.preventDefault();
         employeeData.push(data);
-        console.log(employeeData);
     }
 
     function setFormDisable(...args) {

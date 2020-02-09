@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 
 export default function SingleReport (props) {
     const { match: { params } } = props;
-    console.log(params.name)
 
     const report = JSON.parse(localStorage.getItem('reports')).filter(val => val.name.toLowerCase() == params.name.toLowerCase())
     const [data, setData] = useState({ results: [ ] })
@@ -19,7 +18,6 @@ export default function SingleReport (props) {
         fetchData();
     }, []);
 
-    console.log(report)
 
     return(
         <div className="employee" >
@@ -27,7 +25,7 @@ export default function SingleReport (props) {
                 <Card.Body>
                 {data.results.map((result, idx) => (
                 <div key={idx}>
-                    <img alt="employee-image" style={{ borderRadius: '50%'}} src= {result.picture.large} />
+                    <img alt="employee-random" style={{ borderRadius: '50%'}} src= {result.picture.large} />
                 </div>))}
                 <div className="employee-id">
                 {report.map((output, index) => (
