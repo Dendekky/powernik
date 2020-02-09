@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import CsvDownloader from 'react-csv-downloader';
 
 export default function AllReport () {
     const reports = JSON.parse(localStorage.getItem('reports'));
@@ -17,6 +19,9 @@ export default function AllReport () {
                     <p>₦{report.bonus}</p>
                 </div>
                 ))}
+                <CsvDownloader filename="All Bonus Report" datas={reports}>
+                    <Button>Download As CSV</Button>
+                </CsvDownloader>
                 </Card.Body>
             </Card>
         </div>
